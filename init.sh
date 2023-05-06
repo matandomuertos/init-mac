@@ -16,6 +16,7 @@ brew install git
 brew install wget
 brew install unzip
 brew install telnet
+brew install node
 sudo gem install iStats
 
 # Add koko to hosts
