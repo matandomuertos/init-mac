@@ -11,6 +11,7 @@ brew install --cask topnotch
 brew install --cask rectangle
 brew install --cask spotify
 brew install --cask tunnelbear
+brew install --cask vmware-fusion
 brew install bash && sudo chsh -s /usr/local/bin/bash $(whoami)
 brew install git
 brew install wget
