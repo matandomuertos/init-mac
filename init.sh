@@ -11,13 +11,16 @@ brew install --cask topnotch
 brew install --cask rectangle
 brew install --cask spotify
 brew install --cask tunnelbear
-brew install bash && sudo chsh -s /usr/local/bin/bash $(whoami)
+#brew install bash && sudo chsh -s /usr/local/bin/bash $(whoami)
 brew install git
 brew install wget
 brew install unzip
 brew install telnet
 brew install node
 sudo gem install iStats
+
+# Oh m Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Add koko to hosts
 sudo echo "192.168.31.167 koko" >> /etc/hosts
