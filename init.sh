@@ -142,6 +142,12 @@ killall Finder
 # Set update frecuency
 defaults write com.apple.ActivityMonitor "UpdatePeriod" -int "1"
 
+## Terminal ##
+# Add custom theme to terminal and set it as default
+open ~/custom.terminal
+defaults write com.apple.terminal "Default Window Settings" -string "custom"
+defaults write com.apple.Terminal "Startup Window Settings" -string "custom"
+
 ## System ##
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
