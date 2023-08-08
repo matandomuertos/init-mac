@@ -110,8 +110,8 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 # Sleep the display after 10 minutes when charger is connected
 sudo pmset -c displaysleep 10
-# Sleep the display after 2 minutes when working on battery
-sudo pmset -b displaysleep 2
+# Sleep the display after 5 minutes when working on battery
+sudo pmset -b displaysleep 5
 # Enable low power mode on battery
 sudo pmset -b lowpowermode 1
 
@@ -165,8 +165,10 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 ## System ##
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
-# Disable the “Are you sure you want to open this application?” dialog
+# Disable the “Are you sure you want to open this application?” dialog - Not sure why is not working with some apps
 defaults write com.apple.LaunchServices LSQuarantine -bool false
+sudo defaults write com.apple.LaunchServices LSQuarantine -bool NO
+sudo defaults write com.apple.security GKAutoRearm -bool NO
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 

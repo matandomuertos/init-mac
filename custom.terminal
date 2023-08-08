@@ -29,7 +29,7 @@
 	<key>CursorBlink</key>
 	<false/>
 	<key>DisableANSIColor</key>
-	<true/>
+	<false/>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
@@ -48,7 +48,7 @@
 	<key>columnCount</key>
 	<integer>90</integer>
 	<key>name</key>
-	<string>Basic</string>
+	<string>custom</string>
 	<key>rowCount</key>
 	<integer>30</integer>
 	<key>type</key>
