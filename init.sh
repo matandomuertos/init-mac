@@ -141,12 +141,25 @@ killall Finder
 ## Activity Monitor ##
 # Set update frecuency
 defaults write com.apple.ActivityMonitor "UpdatePeriod" -int "1"
+# Sort Activity Monitor results by CPU usage
+defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+defaults write com.apple.ActivityMonitor SortDirection -int 0
+
+## Time Machine ##
+# Prevent Time Machine from prompting to use new hard drives as backup volume
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+# Disable local Time Machine backups
+hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ## Terminal ##
 # Add custom theme to terminal and set it as default
 open ~/custom.terminal
 defaults write com.apple.terminal "Default Window Settings" -string "custom"
 defaults write com.apple.Terminal "Startup Window Settings" -string "custom"
+
+## Photos ##
+# Prevent Photos from opening automatically when devices are plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 ## System ##
 # Disable the sound effects on boot
