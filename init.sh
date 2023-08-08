@@ -20,6 +20,7 @@ brew install --cask rectangle
 brew install --cask spotify
 brew install --cask tunnelbear
 brew install --cask docker
+brew install --cask vlc
 brew install git
 brew install wget
 brew install unzip
