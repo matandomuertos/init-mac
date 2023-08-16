@@ -31,6 +31,8 @@ brew install node
 sudo gem install iStats
 # Install Oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Disable autoMenu in ZSH
+setopt noautomenu
 
 
 ###############################################################################
