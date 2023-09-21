@@ -21,18 +21,31 @@ brew install --cask spotify
 brew install --cask tunnelbear
 brew install --cask docker
 brew install --cask vlc
+#brew install --cask microsoft-outlook
+#brew install --cask zoom
+#brew install --cask firefix
 brew install git
 brew install wget
 brew install unzip
 brew install telnet
 brew install wallpaper
 brew install node
+brew install watch
+#brew install awscli
+#brew install argocd
+#brew install helm
+#brew install jq
+#brew install kubectl
+#brew install krew
+#brew install hidetatz/tap/kubecolor
+#kubectl krew install get-all
+#kubectl krew install resource-capacity
+#kubectl krew install view-secret
+#kubectl krew install stern
 # Install iStats
 sudo gem install iStats
 # Install Oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# Disable autoMenu in ZSH
-setopt noautomenu
 
 
 ###############################################################################
