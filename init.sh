@@ -18,7 +18,8 @@ brew install --cask google-drive
 brew install --cask topnotch
 brew install --cask rectangle
 brew install --cask spotify
-brew install --cask tunnelbear
+# brew install --cask tunnelbear
+brew install --cask nordvpn
 brew install --cask docker
 brew install --cask vlc
 #brew install --cask microsoft-outlook
@@ -28,9 +29,10 @@ brew install git
 brew install wget
 brew install unzip
 brew install telnet
-brew install wallpaper
+# brew install wallpaper
 brew install node
 brew install watch
+brew install MonitorControl
 #brew install awscli
 #brew install argocd
 #brew install helm
@@ -98,26 +100,26 @@ killall Dock
 
 ## Mouse and trackpad ##
 # Enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-# Map bottom right corner to right-click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
-# Disable natural scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-# Ajust mouse sensibility
-defaults write .GlobalPreferences com.apple.mouse.scaling 0.6875
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# # Map bottom right corner to right-click
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# # Disable natural scrolling
+# defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+# # Ajust mouse sensibility
+# defaults write .GlobalPreferences com.apple.mouse.scaling 0.6875
 
 ## Wallpaper ##
 # Download wallpapers
-wget https://i.imgur.com/7dLElgB.jpg -O ~/Pictures/aperture.jpg
-wget https://i.imgur.com/wTi5pSF.jpg -O ~/Pictures/nerve.jpg
-wget https://i.imgur.com/5eEWJhW.png -O ~/Pictures/glados.png
-# Set wallpaper in all the screens
-wallpaper set ~/Pictures/aperture.jpg
+# wget https://i.imgur.com/7dLElgB.jpg -O ~/Pictures/aperture.jpg
+# wget https://i.imgur.com/wTi5pSF.jpg -O ~/Pictures/nerve.jpg
+# wget https://i.imgur.com/5eEWJhW.png -O ~/Pictures/glados.png
+# # Set wallpaper in all the screens
+# wallpaper set ~/Pictures/aperture.jpg
 
 ## Energy ##
 # Require password immediately after sleep or screen saver begins
@@ -163,9 +165,9 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 
 ## Time Machine ##
 # Prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-# Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+# defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+# # Disable local Time Machine backups
+# hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ## Terminal ##
 # Add custom theme to terminal and set it as default
@@ -179,7 +181,7 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 ## System ##
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+# sudo nvram SystemAudioVolume=" "
 # Disable the “Are you sure you want to open this application?” dialog - Not sure why is not working with some apps
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 sudo defaults write com.apple.LaunchServices LSQuarantine -bool NO
