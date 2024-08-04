@@ -33,6 +33,7 @@ brew install telnet
 brew install node
 brew install watch
 brew install MonitorControl
+brew install carlocab/personal/unrar
 #brew install awscli
 #brew install argocd
 #brew install helm
