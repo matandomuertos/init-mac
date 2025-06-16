@@ -24,7 +24,7 @@ brew install --cask docker
 brew install --cask vlc
 #brew install --cask microsoft-outlook
 #brew install --cask zoom
-#brew install --cask firefix
+#brew install --cask firefox
 brew install git
 brew install wget
 brew install unzip
@@ -34,6 +34,7 @@ brew install node
 brew install watch
 brew install MonitorControl
 brew install carlocab/personal/unrar
+brew install tenv
 #brew install awscli
 #brew install argocd
 #brew install helm
