@@ -15,16 +15,17 @@ brew install --cask visual-studio-code
 brew install --cask discord
 brew install --cask coconutbattery
 brew install --cask google-drive
-brew install --cask topnotch
-brew install --cask rectangle
+# brew install --cask topnotch
+# brew install --cask rectangle
 brew install --cask spotify
 # brew install --cask tunnelbear
-brew install --cask nordvpn
+# brew install --cask nordvpn
 brew install --cask docker
 brew install --cask vlc
 #brew install --cask microsoft-outlook
 #brew install --cask zoom
 #brew install --cask firefox
+#brew install --cask google-cloud-sdk
 brew install git
 brew install wget
 brew install unzip
