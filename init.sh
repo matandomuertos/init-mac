@@ -41,6 +41,7 @@ brew install tenv
 #brew install helm
 #brew install jq
 #brew install kubectl
+#brew install kubectx
 #brew install krew
 #brew install hidetatz/tap/kubecolor
 #kubectl krew install get-all
