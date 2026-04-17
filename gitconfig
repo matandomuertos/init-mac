@@ -1,0 +1,19 @@
+[user]
+	name = Nahuel
+	email = matandomuertos@users.noreply.github.com
+	signingkey = ~/.ssh/id_rsa.pub
+[push]
+        autoSetupRemote = true
+
+[alias]
+	ac = !git add -A && git commit -a -m
+	c = !git commit -a -m
+	up = !git checkout master && git pull
+	cb = !git checkout -b
+	t = !git checkout
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[core]
+	editor = vim
