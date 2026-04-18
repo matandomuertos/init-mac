@@ -20,6 +20,7 @@ brew install --cask spotify
 brew install --cask docker
 brew install --cask vlc
 brew install protonpass/tap/pass-cli
+brew install stats
 brew install git
 brew install wget
 brew install unzip
