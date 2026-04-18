@@ -29,6 +29,8 @@ brew install node
 brew install watch
 brew install MonitorControl
 brew install carlocab/personal/unrar
+brew install telegraf
+brew install mactop
 brew install tenv
 brew install helm
 brew install flux
@@ -169,6 +171,10 @@ cp zshrc ~/.zshrc && chmod 644 ~/.zshrc
 cp firewatch.jpg ghost-of-tsushima.jpg ~/Pictures/ && chmod 644 ~/Pictures/firewatch.jpg && chmod 644 ~/Pictures/ghost-of-tsushima.jpg
 cp telegraf.conf /opt/homebrew/etc/telegraf.conf && chmod 644 /opt/homebrew/etc/telegraf.conf
 
+###############################################################################
+# Start telegraf                                                              #
+###############################################################################
+brew services start telegraf
 
 ###############################################################################
 # Final message and restart                                                   #

@@ -1,6 +1,6 @@
 # init-mac
 
-> Personal macOS initialization and configuration scripts for Nahuel's development environment
+Personal macOS initialization and configuration scripts for Nahuel's development environment
 
 ## Overview
 
@@ -14,7 +14,7 @@ init-mac/
 ├── gitconfig              # Git configuration
 ├── zshrc                  # Zsh shell configuration
 ├── telegraf.conf          # Telegraf metrics configuration
-├── custom.terminal        # Terminal theme profile
+├── custom.terminal        # Terminal theme profile (dark background, 90x30)
 ├── firewatch.jpg          # Wallpaper image
 └── ghost-of-tsushima.jpg  # Wallpaper image
 ```
@@ -36,13 +36,14 @@ init-mac/
 
 ### 1. Software Installation (via Homebrew)
 
-**Applications:**
+**Applications (Cask):**
 - Brave Browser
 - Steam
 - Visual Studio Code
 - Discord
 - CoconutBattery
-- Proton Drive & VPN
+- Proton Drive
+- Proton VPN
 - Spotify
 - Docker Desktop
 - VLC
@@ -53,12 +54,15 @@ init-mac/
 - wget, unzip, telnet
 - Node.js
 - watch
-- MonitorControl
-- unrar
+- MonitorControl (for external monitor brightness)
+- unrar (carlocab/personal)
+- stats (system monitoring)
+- telegraf (metrics collection)
+- mactop (Apple Silicon monitoring)
 - tenv (Tecla rsync)
 - Helm, kubectl, kubectx, krew
-- kubecolor
-- flux
+- kubecolor (colored kubectl output)
+- flux (GitOps tool)
 
 **Krew Plugins:**
 - get-all
@@ -92,11 +96,19 @@ init-mac/
 - Small sidebar icons
 
 **Terminal:**
-- Imports `custom.terminal` theme
+- Imports `custom.terminal` theme (dark background, MenloRegular font, 90x30 window)
 - Sets as default profile
+
+**Activity Monitor:**
+- Update period: 1 second
+- Sorted by CPU usage
+- Ascending order
 
 **Energy/Security:**
 - Password required immediately after sleep/screensaver
+- Time Machine: Disabled prompt for new disks
+- Auto-quit printer app after jobs complete
+- Disable Photos auto-open on device plug-in
 
 **Network:**
 - Adds custom hosts for "koko" network (192.168.0.100-112)
@@ -104,18 +116,24 @@ init-mac/
 ### 3. File Setup
 
 Copies configuration files to your home directory:
-- `~/.gitconfig` - Git aliases and signing configuration
+- `~/.gitconfig` - Git aliases and SSH signing configuration
 - `~/.zshrc` - Zsh configuration with Oh My Zsh, kubectl aliases, and plugins
 - `~/Pictures/firewatch.jpg` - Wallpaper
 - `~/Pictures/ghost-of-tsushima.jpg` - Wallpaper
-- Telegraf config (manual setup required)
+- `/opt/homebrew/etc/telegraf.conf` - Telegraf Prometheus metrics configuration
+- Starts telegraf service via brew services
+
+### 4. Automatic Restart
+
+The script displays a 10-second countdown and automatically restarts the Mac to apply all settings.
 
 ## Configuration Files
 
 ### gitconfig
 
 - **User:** Nahuel (<matandomuertos@users.noreply.github.com>)
-- **Signing:** SSH GPG signing enabled
+- **Signing:** SSH GPG signing enabled (`format = ssh`)
+- **Auto-setup:** Remote tracking enabled
 - **Aliases:**
   - `ac` - Add all and commit with message
   - `c` - Commit all with message
@@ -129,15 +147,20 @@ Copies configuration files to your home directory:
 **Oh My Zsh Configuration:**
 - Theme: `simple`
 - Plugins: `python`, `kubectl`, `kube-ps1`
-- Python auto virtualenv: enabled
+- Python auto virtualenv: enabled (`PYTHON_AUTO_VRUN=true`)
+
+**Kube-ps1 Plugin:**
+- Symbol disabled (`KUBE_PS1_SYMBOL_ENABLE=false`)
+- Hidden if no context (`KUBE_PS1_HIDE_IF_NOCONTEXT=true`)
+- Displayed in right prompt
 
 **History:**
-- 10 million lines stored
+- 10 million lines stored (`HISTSIZE=10000000`, `SAVEHIST=10000000`)
 - Saved to `~/.zsh_history`
 
-**Disable Features:**
-- Auto menu/tab completion
-- Auto update (for faster init)
+**Disabled Features:**
+- Auto menu/tab completion (`noautomenu`, `nomenucomplete`)
+- Auto update (`DISABLE_AUTO_UPDATE=true`) for faster init
 
 **Aliases:**
 - `kubectl` → `kubecolor` (colored output)
@@ -151,17 +174,37 @@ Copies configuration files to your home directory:
 - `ssh` → `ssh -o StrictHostKeyChecking=no`
 
 **Path Additions:**
-- Krew binaries
-- Local user binaries
-- Homebrew binaries
+- Krew binaries (`${KREW_ROOT:-$HOME/.krew}/bin`)
+- Local user binaries (`$HOME/.local/bin`)
+- Homebrew binaries (`/opt/homebrew/bin`)
 
 ### telegraf.conf
 
 Telegraf configuration for Prometheus metrics:
-- Listens on `:9100`
-- Allows connections from `192.168.0.102/32` and `127.0.0.0/32`
-- Collects metrics: CPU, memory, swap, network, disk, temperature, system
-- 10-second interval
+- **Listen address:** `:9100`
+- **Allowed IPs:** `192.168.0.102/32` and `127.0.0.0/32`
+- **Interval:** 10 seconds
+- **Metrics collected:**
+  - CPU (per-cpu and total)
+  - Memory
+  - Swap
+  - Network
+  - Disk (ignores macOS virtual drives)
+  - System
+  - Temperature
+  - **mactop metrics** (Apple Silicon monitoring) - 5s interval
+    - CPU/GPU usage and temperatures
+    - Power consumption
+    - Fan RPM
+
+### custom.terminal
+
+Terminal profile with:
+- Dark background
+- Menlo Regular font with antialiasing
+- 90 columns x 30 rows
+- Cursor blink disabled
+- ANSI color enabled
 
 ## Customization
 
@@ -188,22 +231,25 @@ Telegraf configuration for Prometheus metrics:
 
 ## Available but Commented Out
 
-The following are in `init.sh` but commented out:
+The following are in `init.sh` but commented out (uncomment to install):
 
+**Applications:**
 ```bash
 # brew install --cask microsoft-outlook
 # brew install --cask zoom
 # brew install --cask firefox
 # brew install --cask google-cloud-sdk
-# brew install awscli
-# brew install argocd
+```
+
+**CLI Tools:**
+```bash
 # brew install istioctl
 # brew install cilium-cli
+# brew install awscli
+# brew install argocd
 # brew install jq
 # brew install wallpaper
 ```
-
-Uncomment these lines if you need them.
 
 ## Requirements
 
@@ -235,9 +281,15 @@ The setup includes:
 - kubecolor for colored output
 - Krew plugins: get-all, resource-capacity, view-secret, stern
 - Oh My Zsh kubectl plugin
-- kube-ps1 plugin for prompt
+- kube-ps1 plugin for prompt (right-aligned, hidden when no context)
 - Aliases for common kubectl operations
 - Shortcuts for k3d-dev and k3d-prod contexts
+
+## Monitoring Stack
+
+- **telegraf:** Collects system and Apple Silicon metrics, exposes on port 9100
+- **mactop:** Apple Silicon monitoring tool (integrated into telegraf)
+- **stats:** System monitoring CLI tool
 
 ## License
 
