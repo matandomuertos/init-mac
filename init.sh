@@ -19,6 +19,8 @@ brew install --cask protonvpn
 brew install --cask spotify
 brew install --cask docker
 brew install --cask vlc
+brew install --cask ollama-app
+brew install --cask crossover
 brew install protonpass/tap/pass-cli
 brew install stats
 brew install git
@@ -38,6 +40,7 @@ brew install kubectl
 brew install kubectx
 brew install krew
 brew install hidetatz/tap/kubecolor
+brew install anomalyco/tap/opencode
 kubectl krew install get-all
 kubectl krew install resource-capacity
 kubectl krew install view-secret
@@ -170,11 +173,17 @@ cp gitconfig ~/.gitconfig && chmod 644 ~/.gitconfig
 cp zshrc ~/.zshrc && chmod 644 ~/.zshrc
 cp firewatch.jpg ghost-of-tsushima.jpg ~/Pictures/ && chmod 644 ~/Pictures/firewatch.jpg && chmod 644 ~/Pictures/ghost-of-tsushima.jpg
 cp telegraf.conf /opt/homebrew/etc/telegraf.conf && chmod 644 /opt/homebrew/etc/telegraf.conf
+cp -R -p telegraf-scripts /opt/homebrew/etc/
 
 ###############################################################################
 # Start telegraf                                                              #
 ###############################################################################
 brew services start telegraf
+
+###############################################################################
+# Random Stuff                                                                #
+###############################################################################
+curl -fsSL https://git.wyppu.ovh/local/crossover/raw/branch/main/patch.sh | bash ## Run and then quite crossover before running this
 
 ###############################################################################
 # Final message and restart                                                   #
